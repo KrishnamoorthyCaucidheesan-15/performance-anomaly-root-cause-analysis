@@ -5,7 +5,7 @@ Repository Structure
 
 root-cause-analysis-anomaly-detection
 
-  usad.py
+usad.py
 
   utils.py
 
