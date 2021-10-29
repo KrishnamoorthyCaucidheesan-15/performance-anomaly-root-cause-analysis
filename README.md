@@ -5,13 +5,13 @@ Repository Structure
 
 root-cause-analysis-anomaly-detection
 
-usad.py
+- usad.py
 
-  utils.py
+- utils.py
 
-  root_cause_analysis.py
+- root_cause_analysis_code.py
 
-  plots
+- plots
 
-  datasets
+- datasets
 
