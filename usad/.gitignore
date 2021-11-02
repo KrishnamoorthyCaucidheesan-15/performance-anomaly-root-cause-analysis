@@ -1,0 +1,42 @@
+# Compiled class file
+*.class
+
+# Log file
+*.log
+
+# BlueJ files
+*.ctxt
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# Package Files #
+*.jar
+*.war
+*.nar
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
+
+# Cache files
+__pycache__/
+
+# Idea files
+.idea/
+
+# Misc
+.DS_Store
+venv/
+
+# choreo dataset
+anomaly_detection_models/multivariate_anomaly_detection_models/dataset/
+
+#models
+*.pth
+*.h5
+*.pkl
+*.onnx
