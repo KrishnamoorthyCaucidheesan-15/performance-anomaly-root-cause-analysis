@@ -11,7 +11,6 @@ root-cause-analysis-anomaly-detection
 
 - root_cause_analysis_code.py
 
-- plots
+- outputs
 
-- datasets
 
