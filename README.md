@@ -37,6 +37,8 @@ This folder has the output plots for the four use cases
 
 #### The details regarding the root cause analysis anomaly detection using USAD model is explained in this [Document](https://docs.google.com/document/d/1YEydZbjvepgKePz2i2YWppYYOD-p5l60yZ1eX2mzk0U/edit).
 
+#### The required Datasets can be taken [here](https://drive.google.com/drive/u/0/folders/1eHHw3sbE-PVySBjwvlc_6NT0cknQEvHe). 
+
 The usecases have the threshold values independent of eachother. Therefore there is a need for adjustment of percentile values to maintain good precision, recall values.The percentile values for each use case can be viewed [here](https://docs.google.com/spreadsheets/d/1Xb7rOxUV0B5-Ua9AGqrrXdktTXxlDyJwLT2uDKBb_14/edit#gid=0).
 
 
