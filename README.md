@@ -28,12 +28,7 @@ This file has the code for all four plots
 ### root_cause_analysis_code.py
 This file has the code for training, testing the USAD model and visualisation code for plotting.
 
-### plots
-This folder has the output plots for the four use cases
-1. CPU_hog
-2. Backend delay
-3. Backend failure
-4. User surge
+#### The four plots can be viewed [here](RootcauseAnalysisAnomalyDetectionUSAD - Google Drive).
 
 #### The details regarding the root cause analysis anomaly detection using USAD model is explained in this [Document](https://docs.google.com/document/d/1YEydZbjvepgKePz2i2YWppYYOD-p5l60yZ1eX2mzk0U/edit).
 
