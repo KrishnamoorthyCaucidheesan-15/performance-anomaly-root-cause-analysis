@@ -1,7 +1,3 @@
-# !rm -r sample_data
-# !git clone https://github.com/manigalati/usad
-# %cd usad
-
 import numpy as np
 import pandas as pd
 import torch
