@@ -26,14 +26,18 @@ This file has the code for all four plots
 4. Metric level reconstruction error plot
 
 ### root_cause_analysis_code.py
-This file has the code for training, testing USAD model and visualisation code for plotting.
+This file has the code for training, testing the USAD model and visualisation code for plotting.
 
-### outputs
+### plots
 This folder has the output plots for the four use cases
 1. CPU_hog
 2. Backend delay
 3. Backend failure
 4. User surge
+
+#### The details regarding the root cause analysis anomaly detection using USAD model is explained in this [Document](https://docs.google.com/document/d/1YEydZbjvepgKePz2i2YWppYYOD-p5l60yZ1eX2mzk0U/edit).
+
+
 
 
 
