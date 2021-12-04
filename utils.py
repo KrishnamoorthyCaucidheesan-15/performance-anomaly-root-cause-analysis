@@ -120,7 +120,31 @@ def function_for_condition(test_set,predictions) :
 
     return condition_analysis
 
+def legend_elements():
+    legend_elements = [
+        Line2D([0], [0], marker='|', color='r', label='True Positives', markersize=10),
+        Line2D([0], [0], marker='|', color='g', label='False Positives', markersize=10),
+        Line2D([0], [0], marker='|', color='orange', label='False Negatives', markersize=10),
+
+        Line2D([0], [0], marker='|', color='blue', label='in_avg_response_time', markersize=10),
+        Line2D([0], [0], marker='|', color='yellow', label='in_throughput',
+               markersize=10),
+        Line2D([0], [0], marker='|', color='purple', label='in_progress_requests', markersize=10),
+        Line2D([0], [0], marker='|', color='brown', label='http_error_count',
+               markersize=10),
+        Line2D([0], [0], marker='|', color='limegreen', label='ballerina_error_count', markersize=10),
+        Line2D([0], [0], marker='|', color='gray', label='cpu',
+               markersize=10),
+        Line2D([0], [0], marker='|', color='olive', label='memory', markersize=10),
+        Line2D([0], [0], marker='|', color='crimson', label='cpuPercentage',
+               markersize=10),
+        Line2D([0], [0], marker='|', color='teal', label='memoryPercentage', markersize=10),
+    ]
+    return legend_elements
+
+
 def plot_multivariate_anomaly(test_set, predictions, index_of_maximum_error, k):
+    """ Time series plot for all the metrics """
 
     test_set['predictions'] = predictions
     test_set["index_of_maximum_error"] = index_of_maximum_error
@@ -177,35 +201,15 @@ def plot_multivariate_anomaly(test_set, predictions, index_of_maximum_error, k):
                                     marker='|', s=50)
             eval(i).set_ylim([-0.7, 2.5])
 
-    legend_elements = [
-        Line2D([0], [0], marker='|', color='r', label='True Positives', markersize=10),
-        Line2D([0], [0], marker='|', color='g', label='False Positives', markersize=10),
-        Line2D([0], [0], marker='|', color='orange', label='False Negatives', markersize=10),
-
-        Line2D([0], [0], marker='|', color='blue', label='in_avg_response_time', markersize=10),
-        Line2D([0], [0], marker='|', color='yellow', label='in_throughput',
-               markersize=10),
-        Line2D([0], [0], marker='|', color='purple', label='in_progress_requests', markersize=10),
-        Line2D([0], [0], marker='|', color='brown', label='http_error_count',
-               markersize=10),
-        Line2D([0], [0], marker='|', color='limegreen', label='ballerina_error_count', markersize=10),
-        Line2D([0], [0], marker='|', color='gray', label='cpu',
-               markersize=10),
-        Line2D([0], [0], marker='|', color='olive', label='memory', markersize=10),
-        Line2D([0], [0], marker='|', color='crimson', label='cpuPercentage',
-               markersize=10),
-        Line2D([0], [0], marker='|', color='teal', label='memoryPercentage', markersize=10),
-                       ]
-
-    fig.legend(handles=legend_elements, fontsize=10)
+    fig.legend(handles=legend_elements(), fontsize=10)
     fig.set_size_inches(12, 25)
     fig.tight_layout(pad=10.0)
-    plt.savefig("CPU_hog_multivariate_anomaly_plot.png", dpi=200)
+    plt.savefig("backend_failure_multivariate_anomaly_plot.png", dpi=200)
 
 
 def metric_count_histogram(test_set, predictions, index_of_maximum_error):
-    """the total count of metrics on how many times it has been the major deviating feature in the time frame
-    has been taken and plotted in a bar chart"""
+    """ The total count of metrics on how many times it has been the major deviating feature in the time frame
+    has been taken and plotted in a bar chart """
 
     test_set['predictions'] = predictions
     test_set["index_of_maximum_error"] = index_of_maximum_error
@@ -225,11 +229,11 @@ def metric_count_histogram(test_set, predictions, index_of_maximum_error):
     plt.xticks(y_value , features)
     plt.xticks(fontsize=3)
     plt.ylabel('Value')
-    plt.title('CPU_hog')
-    plt.savefig("CPU_hog_metric_count_histogram.png", dpi=200)
+    plt.title('backend_failure')
+    plt.savefig("backend_failure_metric_count_histogram.png", dpi=200)
 
 def reconstruction_error_plot(test_set, predictions, index_of_maximum_error, results, threshold_line):
-    """This plot depicts the overall reconstruction error"""
+    """ This plot depicts the overall reconstruction error """
 
     test_set['predictions'] = predictions
     test_set['index_of_maximum_error'] = index_of_maximum_error
@@ -275,35 +279,15 @@ def reconstruction_error_plot(test_set, predictions, index_of_maximum_error, res
                 plt.scatter([float(element.split('=')[0])], [-0.5], c=color_for_metric[index],
                             marker='|', s=50)
 
-    legend_elements = [
-        Line2D([0], [0], marker='|', color='r', label='True Positives', markersize=10),
-        Line2D([0], [0], marker='|', color='g', label='False Positives', markersize=10),
-        Line2D([0], [0], marker='|', color='orange', label='False Negatives', markersize=10),
-
-        Line2D([0], [0], marker='|', color='blue', label='in_avg_response_time', markersize=10),
-        Line2D([0], [0], marker='|', color='yellow', label='in_throughput',
-               markersize=10),
-        Line2D([0], [0], marker='|', color='purple', label='in_progress_requests', markersize=10),
-        Line2D([0], [0], marker='|', color='brown', label='http_error_count',
-               markersize=10),
-        Line2D([0], [0], marker='|', color='limegreen', label='ballerina_error_count', markersize=10),
-        Line2D([0], [0], marker='|', color='gray', label='cpu',
-               markersize=10),
-        Line2D([0], [0], marker='|', color='olive', label='memory', markersize=10),
-        Line2D([0], [0], marker='|', color='crimson', label='cpuPercentage',
-               markersize=10),
-        Line2D([0], [0], marker='|', color='teal', label='memoryPercentage', markersize=10),
-                       ]
-
-    fig.legend(handles=legend_elements, fontsize=10)
+    fig.legend(handles=legend_elements(), fontsize=10)
     plt.axhline(y=threshold_line, color='r', linestyle='-')
     fig.set_size_inches(20, 4)
     fig.tight_layout(pad=10.0)
-    plt.savefig("CPU_hog_overall_reconstruction_error_plot.png", dpi=200)
+    plt.savefig("backend_failure_overall_reconstruction_error_plot.png", dpi=200)
 
 def reconstruction_error_plot_for_nine_metrics(test_set, predictions, index_of_maximum_error, metrics, threshold):
+    """ This plot depicts the metric wise reconstruction error """
 
-    """This plot depicts the metric wise reconstruction error"""
     test_set['predictions'] = predictions
     test_set['index_of_maximum_error'] = index_of_maximum_error
     fig, axs = plt.subplots()
@@ -350,38 +334,9 @@ def reconstruction_error_plot_for_nine_metrics(test_set, predictions, index_of_m
                 plt.scatter([float(element.split('=')[0])], [-0.1], c=color_for_metric[index],
                             marker='|', s=50)
 
-    legend_elements = [
-        Line2D([0], [0], marker='|', color='r', label='True Positives', markersize=10),
-        Line2D([0], [0], marker='|', color='g', label='False Positives', markersize=10),
-        Line2D([0], [0], marker='|', color='orange', label='False Negatives', markersize=10),
-
-        Line2D([0], [0], marker='|', color='blue', label='in_avg_response_time', markersize=10),
-        Line2D([0], [0], marker='|', color='yellow', label='in_throughput',
-               markersize=10),
-        Line2D([0], [0], marker='|', color='purple', label='in_progress_requests', markersize=10),
-        Line2D([0], [0], marker='|', color='brown', label='http_error_count',
-               markersize=10),
-        Line2D([0], [0], marker='|', color='limegreen', label='ballerina_error_count', markersize=10),
-        Line2D([0], [0], marker='|', color='gray', label='cpu',
-               markersize=10),
-        Line2D([0], [0], marker='|', color='olive', label='memory', markersize=10),
-        Line2D([0], [0], marker='|', color='crimson', label='cpuPercentage',
-               markersize=10),
-        Line2D([0], [0], marker='|', color='teal', label='memoryPercentage', markersize=10),
-                       ]
-
-    fig.legend(handles=legend_elements, fontsize=10)
+    fig.legend(handles=legend_elements(), fontsize=10)
     plt.axhline(threshold, color='red', linewidth=1)
     fig.set_size_inches(20, 13)
     fig.tight_layout(pad=10.0)
-    plt.savefig("CPU_hog_metric_level_reconstruction_error_plot.png", dpi=200)
-
-
-
-
-
-
-
-
-
-
+    plt.savefig("backend_failure_metric_level_reconstruction_error_plot.png", dpi=200)
+    
